@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="700.0" prefWidth="650.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="560.0">
+         <children>
+            <Label text="To do List" underline="true">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="560.0">
+         <children>
+            <Label text="Add a new item" textFill="#e82c2c">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="29.0" prefWidth="650.0" spacing="20.0">
+         <children>
+            <TextField fx:id="TxtFldName" prefHeight="26.0" prefWidth="156.0" promptText="Name" />
+            <TextField fx:id="TxtFldLocation" prefHeight="26.0" prefWidth="120.0" promptText="Location" />
+            <TextField fx:id="TxtFldPriority" prefHeight="26.0" prefWidth="125.0" promptText="Priority Level (#)" />
+            <VBox alignment="CENTER" prefHeight="39.0" prefWidth="182.0" spacing="15.0">
+               <children>
+                  <TextField fx:id="TxtFldTime" prefHeight="26.0" prefWidth="159.0" promptText="Estimated Time to Complete" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="BtnCreateNewEvent" disable="true" mnemonicParsing="false" onAction="#createNewEvent" text="Must Select Date Before Adding Item" />
+      <HBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="600.0">
+         <children>
+            <VBox prefHeight="23.0" prefWidth="155.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="287.0" text="Showing List for Date:">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+                  <Button fx:id="BtnDeleteEvent" mnemonicParsing="false" onAction="#deleteEvent" text="Delete Selected Item" />
+               </children>
+            </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="LblCurrentCalendarDate" text="No Date Selected">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="322.0" prefWidth="589.0">
+         <children>
+            <ListView fx:id="EventList" prefHeight="316.0" prefWidth="293.0" />
+            <VBox prefHeight="264.0" prefWidth="88.0" />
+            <VBox alignment="TOP_CENTER" prefHeight="264.0" prefWidth="224.0" spacing="10.0">
+               <children>
+                  <Label text="Select Which day you would like" />
+                  <Label text=" to view/make adjustments to" />
+                  <DatePicker fx:id="TxtFldSelectedCalendarDate" />
+                  <Button fx:id="BtnEnter" mnemonicParsing="false" onAction="#setCalendarDateToSelectedDate" text="Enter" />
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="BtnSaveCalendar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#saveCalendar" text="Save List" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="560.0">
+         <children>
+            <Button fx:id="BtnLoadTodayCalendar" mnemonicParsing="false" onAction="#loadTodayCalendar" text="Load Today's List">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
